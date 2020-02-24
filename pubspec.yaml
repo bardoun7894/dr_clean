@@ -45,7 +45,35 @@ flutter:
   assets:
     - assets/logos/facebook.jpg
     - assets/logos/google.jpg
+    - assets/logos/laundry_logo.png
+    - assets/logos/locate.png
 
+    - assets/home_images/user.png
+    - assets/home_images/clean.png
+    - assets/home_images/dry.png
+    - assets/home_images/shoe.png
+    - assets/home_images/washer.png
+    - assets/home_images/chemise.png
+    - assets/home_images/iron.png
+    - assets/furniture-and-household.png
+    - assets/page1/tshirt.png
+    - assets/page1/blouse.png
+    - assets/page1/bottoms.png
+    - assets/page1/coat.png
+    - assets/page1/dress.png
+    - assets/page1/tops.png
+    - assets/page1/hoodie.png
+    - assets/page1/shirt.png
+    - assets/page1/suits.png
+    - assets/back_container.png
+    - assets/dashboard.png
+    - assets/wash&dry.png
+    - assets/wash&fold.png
+    - assets/wash&iron.png
+    - assets/jacket.png
+    - assets/pants.png
+    - assets/hijab.png
+    - assets/tshirt.png
 
   fonts:
       - family: OpenSans

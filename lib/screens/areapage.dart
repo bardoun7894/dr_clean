@@ -23,6 +23,8 @@ class _AreaPageState extends State<AreaPage> {
 				child: Column(
 					mainAxisAlignment: MainAxisAlignment.center,
 					children: <Widget>[
+						Image.asset("assets/logos/laundry_logo.png")
+						,
 						userLocation == null
 								? CircularProgressIndicator()
 								: Text("Location:" +
@@ -31,7 +33,7 @@ class _AreaPageState extends State<AreaPage> {
 								userLocation["longitude"].toString()),
 						Padding(
 							padding: const EdgeInsets.all(8.0),
-							child: RaisedButton(
+							child: MaterialButton(
 								onPressed: () {
 									_getLocation().then((value) {
 										setState(() {
@@ -39,8 +41,7 @@ class _AreaPageState extends State<AreaPage> {
 										});
 									});
 								},
-								color: Colors.blue,
-								child: Text("Get Location", style: TextStyle(color: Colors.white),),
+								child:Image.asset("assets/logos/locate.png",height:60,width: 60,),
 							),
 					
 						),
