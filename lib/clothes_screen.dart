@@ -2,12 +2,12 @@ import 'package:dr_clean/orderList.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Clothes extends StatefulWidget {
+class ClothesScreen extends StatefulWidget {
   @override
-  _ClothesState createState() => _ClothesState();
+  _ClothesScreenState createState() => _ClothesScreenState();
 }
 
-class _ClothesState extends State<Clothes> {
+class _ClothesScreenState extends State<ClothesScreen> {
   int qty = 0;
   int totalPrice=0;
   int price =10;

@@ -1,6 +1,7 @@
 import 'package:dr_clean/home.dart';
 import 'package:dr_clean/screens/areapage.dart';
 import 'package:dr_clean/screens/loginpage.dart';
+import 'package:dr_clean/screens/testScreen.dart';
 import 'package:dr_clean/utilities/newMain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,8 +14,7 @@ class MyApp extends StatelessWidget {
       statusBarColor: Colors.transparent,
     ));
     return MaterialApp(
-
-      home: HomePage(),
+      home: LoginScreen(),
     );
   }
 }

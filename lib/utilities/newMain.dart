@@ -1,7 +1,7 @@
-
-
-import 'package:dr_clean/clothes.dart';
+ 
 import 'package:flutter/material.dart';
+
+import '../clothes_screen.dart';
 
 class NewMain extends StatefulWidget {
   @override
@@ -42,7 +42,7 @@ Positioned(
 
 			InkWell(
 				onTap: (){
-					Navigator.push(context, MaterialPageRoute(builder: (context) => Clothes()));
+					Navigator.push(context, MaterialPageRoute(builder: (context) => ClothesScreen()));
 				},
 					child: Image.asset("assets/wash&iron.png"))
 
