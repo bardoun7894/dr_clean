@@ -707,7 +707,7 @@ class _ClothesScreenState extends State<ClothesScreen> {
 
 														},
 													  child: Container(
-													  	height: 40,
+													  	height: 20,
 													  	width:140,
 													  	child: Center(child: Text("Added to Basket",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w800
 													  			,color:Colors.white),),),

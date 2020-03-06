@@ -1,6 +1,11 @@
+import 'package:dr_clean/api/authentication.dart';
+import 'package:dr_clean/exceptions/exception.dart';
+import 'package:dr_clean/screens/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dr_clean/utilities/constants.dart';
+
+import '../clothes_screen.dart';
 
 class LoginScreen extends StatefulWidget {
 	@override
@@ -8,6 +13,13 @@ class LoginScreen extends StatefulWidget {
 }
 class _LoginScreenState extends State<LoginScreen> {
 	bool _rememberMe = false;
+  final _controllerEmail = TextEditingController();
+final _controllerPassword = TextEditingController();
+@override
+void initState() { 
+  super.initState();
+
+}
 	Widget _buildEmailTF() {
 		return Column(
 			crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,6 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
 					decoration: kBoxDecorationStyle,
 					height: 60.0,
 					child: TextField(
+            controller: _controllerEmail,
 						keyboardType: TextInputType.emailAddress,
 						style: TextStyle(
 							color: Colors.white,
@@ -57,6 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
 					decoration: kBoxDecorationStyle,
 					height: 60.0,
 					child: TextField(
+            controller: _controllerPassword,
 						obscureText: true,
 						style: TextStyle(
 							color: Colors.white,
@@ -118,16 +132,18 @@ class _LoginScreenState extends State<LoginScreen> {
 			),
 		);
 	}
-
+Authentication authentication=Authentication();
 	Widget _buildLoginBtn() {
 		return Container(
 			padding: EdgeInsets.symmetric(vertical: 25.0),
 			width: double.infinity,
 			child: RaisedButton(
 				elevation: 5.0,
-				onPressed: (){
-
-         print('Login Button Pressed');
+				onPressed: ()async{
+          String email=_controllerEmail.text.toLowerCase();
+          String password=_controllerPassword.text ;
+      await authentication.login(email, password);
+      Navigator.push(context, new MaterialPageRoute(builder:(context)=>ClothesScreen()));
         }
         
         ,
@@ -149,8 +165,8 @@ class _LoginScreenState extends State<LoginScreen> {
 			),
 		);
 	}
-
-	Widget _buildSignInWithText() {
+	
+  Widget _buildSignInWithText() {
 		return Column(
 			children: <Widget>[
 				Text(
@@ -220,7 +236,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
 	Widget _buildSignupBtn() {
 		return GestureDetector(
-			onTap: () => print('Sign Up Button Pressed'),
+			onTap: () =>{ 
+      Navigator.push(context, new MaterialPageRoute(builder:(context)=>RegisterScreen()))  
+        }  ,
 			child: RichText(
 				text: TextSpan(
 					children: [
@@ -233,6 +251,7 @@ class _LoginScreenState extends State<LoginScreen> {
 							),
 						),
 						TextSpan(
+
 							text: 'Sign Up',
 							style: TextStyle(
 								color: Colors.white,
@@ -273,7 +292,7 @@ class _LoginScreenState extends State<LoginScreen> {
 								),
 							),
 							Container(
-								height: double.infinity,
+								height: MediaQuery.of(context).size.height,
 								child: SingleChildScrollView(
 									physics: AlwaysScrollableScrollPhysics(),
 									padding: EdgeInsets.symmetric(
@@ -315,3 +334,21 @@ class _LoginScreenState extends State<LoginScreen> {
 		);
 	}
 }
+
+  _error(error) {
+    return Container(
+        child: Center(
+      child: Text(
+        "$error",
+        style: TextStyle(fontSize: 16),
+      ),
+    ));
+  }
+
+  _loading(e) {
+    return Container(
+      child: Center(
+        child: Text('loading ...$e'),
+      ),
+    );
+  }
